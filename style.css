@@ -39,8 +39,6 @@ body {
     background-color: #fff;
     color: #000;
     max-width: 800px;
-    /* padding: 30px; */
-    /* position: relative; */
     border-radius: 30px;
     border: 3px solid #fff;
     display: grid;
@@ -64,11 +62,15 @@ body {
     right: 5px;
     top: 5px;
     cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s;
 }
 
-/* .close-icon img:hover {
-    box-shadow: rgba(1, 1, 1, 0.8);
-} */
+.close-icon img:hover {
+    transform: scale(1.07);
+}
+
+
 
 .popup-text h2 {
     font-size: 48px;
@@ -111,16 +113,17 @@ body {
 .social-media-icons {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-    padding: 5px;
-    padding-left: 10px;
+    gap: 6px;
+    padding-left: 20px;
     cursor: pointer;
 }
 
 .social-media-api-logo {
-    width: 48px;
-    height: 48px;
-    fill: #5c7cfa;
+   transition: all 0.3s;
+}
+
+.social-media-api-logo:hover {
+    transform: scale(1.1);
 }
 
 .create-acount-href {
