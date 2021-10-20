@@ -1,14 +1,510 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <title>CheckersJS</title>
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
     <header>
-        <h1>Checkers</h1>
-        <h2>Powered by JavaScript project</h2></header>
-</body>
+      <div class="header-div">
+        <h1>
+          <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+          <svg
+            class="checkers-scale-icon"
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 511.982 511.982"
+            style="enable-background: new 0 0 511.982 511.982"
+            xml:space="preserve"
+          >
+            <rect
+              x="42.656"
+              y="85.332"
+              style="fill: #965353"
+              width="426.67"
+              height="426.65"
+            />
+            <rect
+              x="42.656"
+              y="319.992"
+              style="fill: #a85d5d"
+              width="106.67"
+              height="106.67"
+            />
+            <rect
+              x="149.329"
+              y="319.992"
+              style="fill: #ffd2a6"
+              width="106.65"
+              height="106.67"
+            />
+            <rect
+              x="255.979"
+              y="319.992"
+              style="fill: #a85d5d"
+              width="106.66"
+              height="106.67"
+            />
+            <g>
+              <rect
+                x="362.639"
+                y="319.992"
+                style="fill: #ffd2a6"
+                width="106.68"
+                height="106.67"
+              />
+              <rect
+                x="42.656"
+                y="213.332"
+                style="fill: #ffd2a6"
+                width="106.67"
+                height="106.66"
+              />
+            </g>
+            <rect
+              x="149.329"
+              y="213.332"
+              style="fill: #a85d5d"
+              width="106.65"
+              height="106.66"
+            />
+            <rect
+              x="255.979"
+              y="213.332"
+              style="fill: #ffd2a6"
+              width="106.66"
+              height="106.66"
+            />
+            <g>
+              <rect
+                x="362.639"
+                y="213.332"
+                style="fill: #a85d5d"
+                width="106.68"
+                height="106.66"
+              />
+              <rect
+                x="42.656"
+                y="106.662"
+                style="fill: #a85d5d"
+                width="106.67"
+                height="106.67"
+              />
+            </g>
+            <rect
+              x="149.329"
+              y="106.662"
+              style="fill: #ffd2a6"
+              width="106.65"
+              height="106.67"
+            />
+            <rect
+              x="255.979"
+              y="106.662"
+              style="fill: #a85d5d"
+              width="106.66"
+              height="106.67"
+            />
+            <g>
+              <rect
+                x="362.639"
+                y="106.662"
+                style="fill: #ffd2a6"
+                width="106.68"
+                height="106.67"
+              />
+              <rect
+                x="42.656"
+                style="fill: #ffd2a6"
+                width="106.67"
+                height="106.66"
+              />
+            </g>
+            <rect
+              x="149.329"
+              style="fill: #a85d5d"
+              width="106.65"
+              height="106.66"
+            />
+            <rect
+              x="255.979"
+              style="fill: #ffd2a6"
+              width="106.66"
+              height="106.66"
+            />
+            <rect
+              x="362.639"
+              style="fill: #a85d5d"
+              width="106.68"
+              height="106.66"
+            />
+            <path
+              style="fill: #ffce54"
+              d="M263.525,472.437c4.171,4.172,4.171,10.922,0,15.094c-4.156,4.156-10.923,4.156-15.078,0
+            c-4.172-4.172-4.172-10.922,0-15.094C252.602,468.281,259.369,468.281,263.525,472.437z"
+            />
+            <g>
+              <path
+                style="fill: #ed5564"
+                d="M127.982,53.334c0,17.672-14.312,31.999-31.999,31.999c-17.672,0-31.999-14.327-31.999-31.999
+                c0-17.679,14.327-31.999,31.999-31.999C113.67,21.336,127.982,35.656,127.982,53.334z"
+              />
+              <circle
+                style="fill: #ed5564"
+                cx="202.649"
+                cy="159.992"
+                r="31.999"
+              />
+              <path
+                style="fill: #ed5564"
+                d="M340.921,53.717c0,17.672-14.312,31.999-31.999,31.999c-17.656,0-31.999-14.327-31.999-31.999
+                c0-17.671,14.343-31.999,31.999-31.999C326.608,21.719,340.921,36.046,340.921,53.717z"
+              />
+              <path
+                style="fill: #ed5564"
+                d="M447.979,159.995c0,17.671-14.312,31.999-31.999,31.999c-17.687,0-31.998-14.328-31.998-31.999
+                s14.312-31.999,31.998-31.999C433.668,127.996,447.979,142.324,447.979,159.995z"
+              />
+            </g>
+            <g>
+              <path
+                style="fill: #434a54"
+                d="M341.326,266.656c0,17.68-14.343,32.006-31.998,32.006c-17.688,0-31.999-14.326-31.999-32.006
+                c0-17.671,14.312-32,31.999-32C326.983,234.657,341.326,248.985,341.326,266.656z"
+              />
+              <path
+                style="fill: #434a54"
+                d="M127.982,266.656c0,17.68-14.312,32.006-31.999,32.006c-17.672,0-31.999-14.326-31.999-32.006
+                c0-17.671,14.327-32,31.999-32C113.67,234.657,127.982,248.985,127.982,266.656z"
+              />
+              <path
+                style="fill: #434a54"
+                d="M234.65,373.316c0,17.688-14.328,31.998-31.999,31.998s-31.999-14.311-31.999-31.998
+                c0-17.672,14.328-31.998,31.999-31.998S234.65,355.644,234.65,373.316z"
+              />
+              <path
+                style="fill: #434a54"
+                d="M447.979,373.316c0,17.688-14.312,31.998-31.999,31.998c-17.687,0-31.998-14.311-31.998-31.998
+                c0-17.672,14.312-31.998,31.998-31.998C433.668,341.318,447.979,355.644,447.979,373.316z"
+              />
+            </g>
+            <rect
+              x="42.656"
+              y="426.662"
+              style="fill: #7f4545"
+              width="426.67"
+              height="21.328"
+            />
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+          </svg>
+          Checkers
+          <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+          <svg
+            class="checkers-scale-icon"
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 511.982 511.982"
+            style="enable-background: new 0 0 511.982 511.982"
+            xml:space="preserve"
+          >
+            <rect
+              x="42.656"
+              y="85.332"
+              style="fill: #965353"
+              width="426.67"
+              height="426.65"
+            />
+            <rect
+              x="42.656"
+              y="319.992"
+              style="fill: #a85d5d"
+              width="106.67"
+              height="106.67"
+            />
+            <rect
+              x="149.329"
+              y="319.992"
+              style="fill: #ffd2a6"
+              width="106.65"
+              height="106.67"
+            />
+            <rect
+              x="255.979"
+              y="319.992"
+              style="fill: #a85d5d"
+              width="106.66"
+              height="106.67"
+            />
+            <g>
+              <rect
+                x="362.639"
+                y="319.992"
+                style="fill: #ffd2a6"
+                width="106.68"
+                height="106.67"
+              />
+              <rect
+                x="42.656"
+                y="213.332"
+                style="fill: #ffd2a6"
+                width="106.67"
+                height="106.66"
+              />
+            </g>
+            <rect
+              x="149.329"
+              y="213.332"
+              style="fill: #a85d5d"
+              width="106.65"
+              height="106.66"
+            />
+            <rect
+              x="255.979"
+              y="213.332"
+              style="fill: #ffd2a6"
+              width="106.66"
+              height="106.66"
+            />
+            <g>
+              <rect
+                x="362.639"
+                y="213.332"
+                style="fill: #a85d5d"
+                width="106.68"
+                height="106.66"
+              />
+              <rect
+                x="42.656"
+                y="106.662"
+                style="fill: #a85d5d"
+                width="106.67"
+                height="106.67"
+              />
+            </g>
+            <rect
+              x="149.329"
+              y="106.662"
+              style="fill: #ffd2a6"
+              width="106.65"
+              height="106.67"
+            />
+            <rect
+              x="255.979"
+              y="106.662"
+              style="fill: #a85d5d"
+              width="106.66"
+              height="106.67"
+            />
+            <g>
+              <rect
+                x="362.639"
+                y="106.662"
+                style="fill: #ffd2a6"
+                width="106.68"
+                height="106.67"
+              />
+              <rect
+                x="42.656"
+                style="fill: #ffd2a6"
+                width="106.67"
+                height="106.66"
+              />
+            </g>
+            <rect
+              x="149.329"
+              style="fill: #a85d5d"
+              width="106.65"
+              height="106.66"
+            />
+            <rect
+              x="255.979"
+              style="fill: #ffd2a6"
+              width="106.66"
+              height="106.66"
+            />
+            <rect
+              x="362.639"
+              style="fill: #a85d5d"
+              width="106.68"
+              height="106.66"
+            />
+            <path
+              style="fill: #ffce54"
+              d="M263.525,472.437c4.171,4.172,4.171,10.922,0,15.094c-4.156,4.156-10.923,4.156-15.078,0
+            c-4.172-4.172-4.172-10.922,0-15.094C252.602,468.281,259.369,468.281,263.525,472.437z"
+            />
+            <g>
+              <path
+                style="fill: #ed5564"
+                d="M127.982,53.334c0,17.672-14.312,31.999-31.999,31.999c-17.672,0-31.999-14.327-31.999-31.999
+                c0-17.679,14.327-31.999,31.999-31.999C113.67,21.336,127.982,35.656,127.982,53.334z"
+              />
+              <circle
+                style="fill: #ed5564"
+                cx="202.649"
+                cy="159.992"
+                r="31.999"
+              />
+              <path
+                style="fill: #ed5564"
+                d="M340.921,53.717c0,17.672-14.312,31.999-31.999,31.999c-17.656,0-31.999-14.327-31.999-31.999
+                c0-17.671,14.343-31.999,31.999-31.999C326.608,21.719,340.921,36.046,340.921,53.717z"
+              />
+              <path
+                style="fill: #ed5564"
+                d="M447.979,159.995c0,17.671-14.312,31.999-31.999,31.999c-17.687,0-31.998-14.328-31.998-31.999
+                s14.312-31.999,31.998-31.999C433.668,127.996,447.979,142.324,447.979,159.995z"
+              />
+            </g>
+            <g>
+              <path
+                style="fill: #434a54"
+                d="M341.326,266.656c0,17.68-14.343,32.006-31.998,32.006c-17.688,0-31.999-14.326-31.999-32.006
+                c0-17.671,14.312-32,31.999-32C326.983,234.657,341.326,248.985,341.326,266.656z"
+              />
+              <path
+                style="fill: #434a54"
+                d="M127.982,266.656c0,17.68-14.312,32.006-31.999,32.006c-17.672,0-31.999-14.326-31.999-32.006
+                c0-17.671,14.327-32,31.999-32C113.67,234.657,127.982,248.985,127.982,266.656z"
+              />
+              <path
+                style="fill: #434a54"
+                d="M234.65,373.316c0,17.688-14.328,31.998-31.999,31.998s-31.999-14.311-31.999-31.998
+                c0-17.672,14.328-31.998,31.999-31.998S234.65,355.644,234.65,373.316z"
+              />
+              <path
+                style="fill: #434a54"
+                d="M447.979,373.316c0,17.688-14.312,31.998-31.999,31.998c-17.687,0-31.998-14.311-31.998-31.998
+                c0-17.672,14.312-31.998,31.998-31.998C433.668,341.318,447.979,355.644,447.979,373.316z"
+              />
+            </g>
+            <rect
+              x="42.656"
+              y="426.662"
+              style="fill: #7f4545"
+              width="426.67"
+              height="21.328"
+            />
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+          </svg>
+        </h1>
+        <h2>
+          Project is powered by JavaScript<svg
+            class="js-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="2500"
+            height="2500"
+            preserveAspectRatio="xMinYMin meet"
+            viewBox="0 0 256 256"
+          >
+            <path fill="#F7DF1E" d="M0 0h256v256H0V0z" />
+            <path
+              d="M67.312 213.932l19.59-11.856c3.78 6.701 7.218 12.371 15.465 12.371 7.905 0 12.89-3.092 12.89-15.12v-81.798h24.057v82.138c0 24.917-14.606 36.259-35.916 36.259-19.245 0-30.416-9.967-36.087-21.996M152.381 211.354l19.588-11.341c5.157 8.421 11.859 14.607 23.715 14.607 9.969 0 16.325-4.984 16.325-11.858 0-8.248-6.53-11.17-17.528-15.98l-6.013-2.58c-17.357-7.387-28.87-16.667-28.87-36.257 0-18.044 13.747-31.792 35.228-31.792 15.294 0 26.292 5.328 34.196 19.247L210.29 147.43c-4.125-7.389-8.591-10.31-15.465-10.31-7.046 0-11.514 4.468-11.514 10.31 0 7.217 4.468 10.14 14.778 14.608l6.014 2.577c20.45 8.765 31.963 17.7 31.963 37.804 0 21.654-17.012 33.51-39.867 33.51-22.339 0-36.774-10.654-43.819-24.574"
+            />
+          </svg>
+        </h2>
+      </div>
+    </header>
+    <main>
+      <nav></nav>
+    </main>
+
+    <div id="popup-log-in-or-sign-in" class="popup-log-in-or-sign-in">
+      <div class="popup-body">
+        <div class="popup-content">
+          <img
+            alt="Checkers picture"
+            class="popup-img"
+            src="Images/4x4Checkers.jpg"
+          />
+          <div class="popup-text">
+            <div class="close-icon">
+              <img src="Images/close.png" alt="close icon" />
+            </div>
+            <h2>LOG IN</h2>
+            <div class="username-and-password">
+              <div class="popup-username">
+                <h3>Username:</h3>
+                <input type="text" name="username..." />
+              </div>
+              <div class="popup-password">
+                <h3>Password:</h3>
+                <input type="text" name="password..." />
+              </div>
+            </div>
+            <div class="create-account-or-sign-in-with">
+                <div>
+                     <div class="create-acount-href"><a href="">Create new account</a></div>
+                    <div class="or-sign-in-with"><h4>Or Sign In with:</h4></div>
+                    </div>
+              <div class="social-media-icons">
+                <img
+                  src="https://img.icons8.com/fluency/50/000000/instagram-new.png"
+                />
+                <img
+                  class="social-media-api-logo"
+                  src="https://img.icons8.com/color/48/000000/twitter--v1.png"
+                />
+
+                <img
+                  class="social-media-api-logo"
+                  src="https://img.icons8.com/color/48/000000/facebook.png"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
 </html>

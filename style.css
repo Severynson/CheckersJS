@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Rubik", sans-serif;
+    line-height: 1;
+    font-weight: 400;
+    color: #555;
+    height: 100%;
+    width: 100%;
+    background-color: #f8f9fa;
+  }
+
+/* POPUP-LOG-In-OR-CREATE-ACCOUNT */
+
+.popup-log-in-or-sign-in {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    /* opacity: 0;
+    visibility: hidden; */
+}
+
+.popup-body {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+}
+
+.popup-content {
+    background-color: #fff;
+    color: #000;
+    max-width: 800px;
+    /* padding: 30px; */
+    /* position: relative; */
+    border-radius: 30px;
+    border: 3px solid #fff;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.popup-img {
+    width: 100%;
+    border-radius: 30px 0 0 30px;
+}
+
+.popup-text {
+    padding: 30px;
+    position: relative;
+}
+
+.close-icon img {
+    height: 48px;
+    width: 48px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+}
+
+/* .close-icon img:hover {
+    box-shadow: rgba(1, 1, 1, 0.8);
+} */
+
+.popup-text h2 {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.username-and-password input {
+    max-width: 50%;
+    padding: 5px;
+}
+
+.popup-username, .popup-password {
+    display: grid;
+    gap: 5px;
+}
+
+.popup-username h3, .popup-password h3 {
+   font-size: 26px;
+}
+
+.username-and-password {
+    display: grid;
+    align-items: center;
+    align-content: center;
+    /* border: 1px solid black; */
+    height: 60%;
+    gap: 7px;
+    padding: 20px;
+}
+
+.create-account-or-sign-in-with {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    /* border: 1px solid black; */
+    padding: 5px;
+}
+
+.social-media-icons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.social-media-api-logo {
+    width: 48px;
+    height: 48px;
+    fill: #5c7cfa;
+}
+
+.create-acount-href {
+    background-color: #748ffc;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 5px;
+    padding: 3px 0;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.create-acount-href a {
+    text-decoration: none;
+}
+
+.create-acount-href:hover {
+    background-color: #91a7ff;
+}
+
+.or-sign-in-with {
+    text-align: center;
+}
+
+/* .popup-close {
+position: absolute;
+right: 10px;
+top: 10px;
+font-size: 25px;
+} */
+
+/* HEADER */
+
+header {
+    border: 1px solid black;
+}
+
+.header-div {
+    text-align: center;
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+}
+
+.header-div h1 {
+  text-transform: uppercase;
+}
+
+.checkers-scale-icon {
+    height: 36px;
+    width: 36px;
+}
+
+.js-icon {
+    height: 24px;
+    width: 24px;
+}
