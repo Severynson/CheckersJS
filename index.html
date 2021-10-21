@@ -17,6 +17,7 @@
   </head>
 
   <body>
+    <div class="container-100vh">
     <header>
       <div class="header-div">
         <h1>
@@ -453,9 +454,20 @@
         </h2>
       </div>
     </header>
-    <main>
-      <nav></nav>
+
+    <main class="main-menu-n-1">
+      <div class="main-menu-main-div-el">
+      <nav class="main-menu-navigation">
+        <button class="start-new-game-btn">START NEW GAME</button>
+        <button>CONTINUE</button>
+        <button>OPTIONS</button>
+        <button>EXIT</button>
+      </nav>
+    </div>
     </main>
+  </div>
+
+<!-- POPUP LOG-IN -->
 
     <div id="popup-log-in-or-sign-in" class="popup-log-in-or-sign-in">
       <div class="popup-body">
@@ -473,13 +485,13 @@
             <div class="username-and-password">
               <div class="popup-username">
                 <h3>Username:</h3>
-                <input type="text" name="username..." />
+                <input class="username-input" type="text" name="username..." />
               </div>
               <div class="popup-password">
                 <h3>Password:</h3>
-                <input type="text" name="password..." />
+                <input class="password-input" type="text" name="password..." />
               </div>
-              <div><button>Confirm</button></div>
+              <div><button class="log-in-confirm-btn">Confirm</button></div>
             </div>
             <div class="create-account-or-sign-in-with">
                 <div>

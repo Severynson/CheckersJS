@@ -14,6 +14,11 @@ body {
     background-color: #f8f9fa;
   }
 
+  .container-100vh {
+      height: 100vh;
+  }
+
+
 /* POPUP-LOG-In-OR-CREATE-ACCOUNT */
 
 .popup-log-in-or-sign-in {
@@ -175,9 +180,9 @@ font-size: 25px;
 
 /* HEADER */
 
-header {
+/* header {
     border: 1px solid black;
-}
+} */
 
 .header-div {
     text-align: center;
@@ -198,4 +203,55 @@ header {
 .js-icon {
     height: 24px;
     width: 24px;
+}
+
+/* MAIN MENU NAVIGATION */
+
+
+
+.main-menu-n-1 {
+    border: 1px solid black;
+    width: 600px;
+    height: 600px;
+    width: 40%;
+    height: 70%;
+    /* height: 250px; */
+    margin: 1.5% auto 1.5% auto;
+    display: grid;
+    /* padding: 150px; */
+    background-image: url('./Images/4x4CheckersMenuBCG.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 30px;
+    transition: all 0.5s;
+}
+
+.main-menu-main-div-el {
+    border: 5px solid black;
+    display: grid;
+    margin: 150px;
+    margin: 20%;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.767);
+}
+
+.main-menu-navigation {
+    display: grid;
+    gap: 20px;
+}
+
+.main-menu-navigation button {
+   border: none;
+   background-color: #748ffc;
+   border-radius: 15px;
+   font-size: 20px;
+   font-weight: bold;
+   padding: 4px;
+   transition: all 0.3s;
+}
+
+.main-menu-navigation button:hover {
+    background-color: #91a7ff;
+    transform: scale(1.05);
 }
