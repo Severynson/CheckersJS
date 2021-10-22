@@ -1,87 +1,110 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "Rubik", sans-serif;
-    line-height: 1;
-    font-weight: 400;
-    color: #555;
-    height: 100%;
-    width: 100%;
-    background-color: #f8f9fa;
-  }
-
-  /* GAME WINDOW */
-
-
-
-.container-100vh {
-    height: 100vh;
-    display: grid;
-    align-items: center;
-    justify-items: center;
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+  height: 100%;
+  width: 100%;
+  background-color: #f8f9fa;
 }
 
+/* GAME WINDOW */
+
+.container-100vh {
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
 
 .game-window {
-    /* 50px of height for navigation and 550px for game itself */
-    height: 600px;
-    width: 550px;
-    border: 1px solid black;
+  /* 50px of height for navigation and 550px for game itself */
+  height: 600px;
+  width: 550px;
+  border: 1px solid black;
 }
 
 nav {
-    height: 50px;
-    border: 1px solid black;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-     gap: 5px;
+  height: 50px;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 5px;
 }
 
 nav button {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    gap: 7px;
-    align-items: center;
-    padding: 0 4%;
-    border: none;
-    background-color: #748ffc;
-    transition: all 0.3s;
-    cursor: pointer;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  align-items: center;
+  padding: 0 4%;
+  border: none;
+  background-color: #748ffc;
+  transition: all 0.3s;
+  cursor: pointer;
 }
 
 nav button:hover {
-    background-color: #91a7ff;
+  background-color: #91a7ff;
 }
 
 .game-nav-icon {
-    height: 24px;
-    width: 24px;
+  height: 24px;
+  width: 24px;
 }
 
 .stupid-icon {
-    height: 34px;
-    width: 34px;
+  height: 34px;
+  width: 34px;
 }
 
 /* GAME FIELD */
 
 .game-field {
-    display: grid;
-    grid-template-columns: repeat(8, 68.75px);
-    grid-template-rows: repeat(8, 68.75px);
+  display: grid;
+  grid-template-columns: repeat(8, 68.75px);
+  grid-template-rows: repeat(8, 68.75px);
+  overflow: hidden;
 }
 
-.cell-2, .cell-4, 
-
-.cell-57 {
-    background-color: #444;
-}
-
-.cell-50 {
-    background-color: #444;
+.cell-2,
+.cell-4,
+.cell-6,
+.cell-8,
+.cell-9,
+.cell-11,
+.cell-13,
+.cell-15,
+.cell-18,
+.cell-20,
+.cell-22,
+.cell-24,
+.cell-25,
+.cell-27,
+.cell-29,
+.cell-31,
+.cell-34,
+.cell-36,
+.cell-38,
+.cell-40,
+.cell-41,
+.cell-43,
+.cell-45,
+.cell-47,
+.cell-50,
+.cell-52,
+.cell-54,
+.cell-56,
+.cell-57,
+.cell-59,
+.cell-61,
+.cell-63 {
+  background-color: #444;
 }
