@@ -6,12 +6,9 @@ const activeCellArr = Array.from(activeCell);
 //     cell2.style.backgroundColor = "blue";
 
 function readeActualCell () {
-    const identifireClass = this.className.split(' ')[0];
-    console.log(identifireClass);
+    const cellIdentifireClass = this.className.split(' ')[0];
+    console.log(cellIdentifireClass);
 }
-// document.querySelectorAll('.active-cell').forEach(e){e.addEventListener('click', readeActualCell)}
-
-// activecellArr.forEach((e) => e.className[0].addEventListener('click', readeActualCell));
 
 activeCellArr.forEach(checkClassOnClick);
 
