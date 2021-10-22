@@ -76,6 +76,12 @@ nav button:hover {
     grid-template-rows: repeat(8, 68.75px);
 }
 
-.cell-1 {
-    border: 1px solid black;
+.cell-2, .cell-4, 
+
+.cell-57 {
+    background-color: #444;
+}
+
+.cell-50 {
+    background-color: #444;
 }
