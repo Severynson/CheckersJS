@@ -219,7 +219,7 @@ font-size: 25px;
     margin: 1.5% auto 1.5% auto;
     display: grid;
     /* padding: 150px; */
-    background-image: url('./Images/4x4CheckersMenuBCG.jpg');
+    background-image: url('../Images/4x4CheckersMenuBCG.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 30px;
@@ -241,17 +241,21 @@ font-size: 25px;
     gap: 20px;
 }
 
-.main-menu-navigation button {
+.main-menu-navigation a {
    border: none;
    background-color: #748ffc;
    border-radius: 15px;
    font-size: 20px;
    font-weight: bold;
-   padding: 4px;
    transition: all 0.3s;
+   text-align: center;
+   text-decoration: none;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
-.main-menu-navigation button:hover {
+.main-menu-navigation a:hover {
     background-color: #91a7ff;
     transform: scale(1.05);
 }
