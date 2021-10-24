@@ -110,7 +110,7 @@ nav button:hover {
 }
 
 /* .active-cell {
-    background-color: #748ffc;
+    display: grid;
+    align-items: center;
+    align-content: center;
 } */
-
-/* JUST CHECKOUT OF GIT ON WINDOWS11 */
