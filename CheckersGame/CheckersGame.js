@@ -20,11 +20,12 @@ const cell24 = document.querySelector('.cell-24');
 const activeCell = document.querySelectorAll('.active-cell');
 const activeCellArr = Array.from(activeCell);
 
-//     cell2.style.backgroundColor = "blue";
-
 function readeActualCell () {
     const cellIdentifireClass = this.className.split(' ')[0];
     console.log(cellIdentifireClass);
+    // let actualCell = document.querySelector(`.${cellIdentifireClass}`)
+    let actualCheckerDivElement = document.querySelector(`.${cellIdentifireClass}-checker-div-element`)
+    actualCheckerDivElement.parentNode.removeChild(actualCheckerDivElement);
 }
 
 activeCellArr.forEach(checkClassOnClick);
@@ -38,8 +39,9 @@ function checkClassOnClick (item) {
     actualCelll.addEventListener('click', readeActualCell);
 }
 
-const Checker = function (cellName) {
+const Checker = function (cellName, checkerColor) {
     this.cellName = cellName;
+    this.checkerColor = checkerColor;
 };
 
 
@@ -53,7 +55,11 @@ Checker.prototype.createCheckers = function  () {
     starEmoji.style.margin = "5px 0px 0px 9px";
 
     let checkerDivElement = document.createElement('div');
-    checkerDivElement.style.backgroundColor = "yellow";
+
+    // cell-00-checker-div-element
+    checkerDivElement.className = `${this.cellName.className.split(' ')[0]}-checker-div-element`;
+    console.log(this.cellName.className.split(' ')[0]);
+    checkerDivElement.style.backgroundColor = this.checkerColor;
     checkerDivElement.style.height = "60px";
     checkerDivElement.style.width = "60px";
     checkerDivElement.style.margin = '-13px 0px 0px 4px';
@@ -64,5 +70,32 @@ Checker.prototype.createCheckers = function  () {
     this.cellName.appendChild(checkerDivElement);
 }
 
-const cell2Checker = new Checker(cell2);
+
+
+
+let cell2Checker = new Checker(cell2, "white");
 cell2Checker.createCheckers();
+const cell4Checker = new Checker(cell4, "white");
+cell4Checker.createCheckers();
+const cell6Checker = new Checker(cell6, "white");
+cell6Checker.createCheckers();
+const cell8Checker = new Checker(cell8, "white");
+cell8Checker.createCheckers();
+
+// cell2Checker = new Checker(cell9, "white");
+// cell2Checker.createCheckers();
+
+const reinitializeDuringGameAct = function () {
+
+}
+
+reinitializeDuringGameAct();
+
+
+// Find avalible checker on cell position:
+
+// const checkCellForAvalibleChecker
+
+// cell2Checker = new Checker(cell9, "white");
+// cell2Checker.createCheckers();
+
