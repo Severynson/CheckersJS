@@ -1,5 +1,3 @@
-// import Checker from "./CreateCheckers.js";
-
 // White checkers
 const cell2 = document.querySelector('.cell-2');
 const cell4 = document.querySelector('.cell-4');
@@ -14,37 +12,31 @@ const cell20 = document.querySelector('.cell-20');
 const cell22 = document.querySelector('.cell-22');
 const cell24 = document.querySelector('.cell-24');
 
-
-
-
 const activeCell = document.querySelectorAll('.active-cell');
 const activeCellArr = Array.from(activeCell);
 
 function readeActualCell () {
     const cellIdentifireClass = this.className.split(' ')[0];
     console.log(cellIdentifireClass);
-    // let actualCell = document.querySelector(`.${cellIdentifireClass}`)
     let actualCheckerDivElement = document.querySelector(`.${cellIdentifireClass}-checker-div-element`)
     actualCheckerDivElement.parentNode.removeChild(actualCheckerDivElement);
 }
 
+// Buttons add loop;
 activeCellArr.forEach(checkClassOnClick);
-
 function checkClassOnClick (item) {
-    // console.log(item.className.split(' ')[0]);
-    let actualCell = item.className.split(' ')[0];
-    // console.log(actualCell);
-    let actualCelll = document.querySelector(`.${actualCell}`);
-    // console.log(actualCelll);
-    actualCelll.addEventListener('click', readeActualCell);
+    let actualCellClass = item.className.split(' ')[0];
+    let actualCellElement = document.querySelector(`.${actualCellClass}`);
+    actualCellElement.addEventListener('click', readeActualCell);
 }
 
+// CheckerConstructor;
 const Checker = function (cellName, checkerColor) {
     this.cellName = cellName;
     this.checkerColor = checkerColor;
 };
 
-
+// Creating checkers function
 Checker.prototype.createCheckers = function  () {
 
     const starEmoji = document.createElement('p');
@@ -82,20 +74,4 @@ cell6Checker.createCheckers();
 const cell8Checker = new Checker(cell8, "white");
 cell8Checker.createCheckers();
 
-// cell2Checker = new Checker(cell9, "white");
-// cell2Checker.createCheckers();
-
-const reinitializeDuringGameAct = function () {
-
-}
-
-reinitializeDuringGameAct();
-
-
 // Find avalible checker on cell position:
-
-// const checkCellForAvalibleChecker
-
-// cell2Checker = new Checker(cell9, "white");
-// cell2Checker.createCheckers();
-
