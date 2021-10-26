@@ -118,7 +118,7 @@ cell63Checker.createCheckers();
 const activeCell = document.querySelectorAll(".active-cell");
 const activeCellArr = Array.from(activeCell);
 
-// Buttons add loop;
+// -------- Buttons-add-loop -----------;
 activeCellArr.forEach(checkClassOnClick);
 function checkClassOnClick(item) {
   let actualCellClass = item.className.split(" ")[0];
@@ -130,16 +130,19 @@ function checkClassOnClick(item) {
 var selectedCheckerColor;
 let countTime = 0;
 function readeActualCell() {
+  // Counting actual side to make it's move:
   countTime++;
   const cellIdentifireClass = this.className.split(" ")[0];
   if (countTime % 2) {
     var actualCheckerDivElement = document.querySelector(
       `.${cellIdentifireClass}-checker-div-element`
     );
+     // Check Color Of Avalible Checker:
     selectedCheckerColor = `${actualCheckerDivElement.style.backgroundColor}`;
+    // Deleting ckecker that selected to be replaced:
     actualCheckerDivElement.parentNode.removeChild(actualCheckerDivElement);
   } else {
-    console.log(selectedCheckerColor);
+   
     let cellToAddChecker = document.querySelector(`.${cellIdentifireClass}`);
     console.log(cellToAddChecker);
     let cellXChecker = new Checker(cellToAddChecker, selectedCheckerColor);
@@ -147,4 +150,4 @@ function readeActualCell() {
   }
 }
 
-// Check Color Of Avalible Checker:
+
