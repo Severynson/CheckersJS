@@ -15,18 +15,18 @@ const cell22 = document.querySelector(".cell-22");
 const cell24 = document.querySelector(".cell-24");
 
 // Red checkers
-const cell41 = document.querySelector('.cell-41');
-const cell43 = document.querySelector('.cell-43');
-const cell45 = document.querySelector('.cell-45');
-const cell47 = document.querySelector('.cell-47');
-const cell50 = document.querySelector('.cell-50');
-const cell52 = document.querySelector('.cell-52');
-const cell54 = document.querySelector('.cell-54');
-const cell56 = document.querySelector('.cell-56');
-const cell57 = document.querySelector('.cell-57');
-const cell59 = document.querySelector('.cell-59');
-const cell61 = document.querySelector('.cell-61');
-const cell63 = document.querySelector('.cell-63');
+const cell41 = document.querySelector(".cell-41");
+const cell43 = document.querySelector(".cell-43");
+const cell45 = document.querySelector(".cell-45");
+const cell47 = document.querySelector(".cell-47");
+const cell50 = document.querySelector(".cell-50");
+const cell52 = document.querySelector(".cell-52");
+const cell54 = document.querySelector(".cell-54");
+const cell56 = document.querySelector(".cell-56");
+const cell57 = document.querySelector(".cell-57");
+const cell59 = document.querySelector(".cell-59");
+const cell61 = document.querySelector(".cell-61");
+const cell63 = document.querySelector(".cell-63");
 
 // CheckerConstructor;
 const Checker = function (cellName, checkerColor) {
@@ -49,7 +49,6 @@ Checker.prototype.createCheckers = function () {
   checkerDivElement.className = `${
     this.cellName.className.split(" ")[0]
   }-checker-div-element`;
-  console.log(this.cellName.className.split(" ")[0]);
   checkerDivElement.style.backgroundColor = this.checkerColor;
   checkerDivElement.style.height = "60px";
   checkerDivElement.style.width = "60px";
@@ -128,33 +127,24 @@ function checkClassOnClick(item) {
 }
 
 // -------- Reading-Cell-ID-Clas --------
+var selectedCheckerColor;
 let countTime = 0;
 function readeActualCell() {
   countTime++;
-  console.log(countTime);
-
   const cellIdentifireClass = this.className.split(" ")[0];
-  console.log(cellIdentifireClass);
-
-
-  var deletedDiv;
   if (countTime % 2) {
-       var actualCheckerDivElement = document.querySelector(
-    `.${cellIdentifireClass}-checker-div-element`
-  ); 
+    var actualCheckerDivElement = document.querySelector(
+      `.${cellIdentifireClass}-checker-div-element`
+    );
+    selectedCheckerColor = `${actualCheckerDivElement.style.backgroundColor}`;
     actualCheckerDivElement.parentNode.removeChild(actualCheckerDivElement);
-    deletedDiv = actualCheckerDivElement;
   } else {
-    
+    console.log(selectedCheckerColor);
     let cellToAddChecker = document.querySelector(`.${cellIdentifireClass}`);
-   console.log(cellToAddChecker);
-    let cellXChecker = new Checker(cellToAddChecker, "white");
+    console.log(cellToAddChecker);
+    let cellXChecker = new Checker(cellToAddChecker, selectedCheckerColor);
     cellXChecker.createCheckers();
   }
 }
-
-
-
-
 
 // Check Color Of Avalible Checker:
