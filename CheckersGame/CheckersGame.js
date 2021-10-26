@@ -28,45 +28,6 @@ const cell59 = document.querySelector('.cell-59');
 const cell61 = document.querySelector('.cell-61');
 const cell63 = document.querySelector('.cell-63');
 
-const activeCell = document.querySelectorAll(".active-cell");
-const activeCellArr = Array.from(activeCell);
-
-let countTime = 0;
-
-function readeActualCell() {
-  //Counter ++ every iteration
-  countTime++;
-  console.log(countTime);
-
-  const cellIdentifireClass = this.className.split(" ")[0];
-  console.log(cellIdentifireClass);
-
-
-  var deletedDiv;
-  if (countTime % 2) {
-       var actualCheckerDivElement = document.querySelector(
-    `.${cellIdentifireClass}-checker-div-element`
-  ); 
-    actualCheckerDivElement.parentNode.removeChild(actualCheckerDivElement);
-    deletedDiv = actualCheckerDivElement;
-  } else {
-    
-    let cellToAddChecker = document.querySelector(`.${cellIdentifireClass}`);
-   console.log(cellToAddChecker);
-    let cellXChecker = new Checker(cellToAddChecker, "white");
-    cellXChecker.createCheckers();
-  }
-}
-
-// Buttons add loop;
-activeCellArr.forEach(checkClassOnClick);
-function checkClassOnClick(item) {
-  let actualCellClass = item.className.split(" ")[0];
-  let actualCellElement = document.querySelector(`.${actualCellClass}`);
-  // console.log(actualCellElement);
-  actualCellElement.addEventListener("click", readeActualCell);
-}
-
 // CheckerConstructor;
 const Checker = function (cellName, checkerColor) {
   this.cellName = cellName;
@@ -153,4 +114,47 @@ cell61Checker.createCheckers();
 const cell63Checker = new Checker(cell63, "#d9480f");
 cell63Checker.createCheckers();
 
-// Find avalible checker on cell position:
+// ----------------- Functions --------------------------------
+
+const activeCell = document.querySelectorAll(".active-cell");
+const activeCellArr = Array.from(activeCell);
+
+// Buttons add loop;
+activeCellArr.forEach(checkClassOnClick);
+function checkClassOnClick(item) {
+  let actualCellClass = item.className.split(" ")[0];
+  let actualCellElement = document.querySelector(`.${actualCellClass}`);
+  actualCellElement.addEventListener("click", readeActualCell);
+}
+
+// -------- Reading-Cell-ID-Clas --------
+let countTime = 0;
+function readeActualCell() {
+  countTime++;
+  console.log(countTime);
+
+  const cellIdentifireClass = this.className.split(" ")[0];
+  console.log(cellIdentifireClass);
+
+
+  var deletedDiv;
+  if (countTime % 2) {
+       var actualCheckerDivElement = document.querySelector(
+    `.${cellIdentifireClass}-checker-div-element`
+  ); 
+    actualCheckerDivElement.parentNode.removeChild(actualCheckerDivElement);
+    deletedDiv = actualCheckerDivElement;
+  } else {
+    
+    let cellToAddChecker = document.querySelector(`.${cellIdentifireClass}`);
+   console.log(cellToAddChecker);
+    let cellXChecker = new Checker(cellToAddChecker, "white");
+    cellXChecker.createCheckers();
+  }
+}
+
+
+
+
+
+// Check Color Of Avalible Checker:
