@@ -5,7 +5,7 @@
     function checkClassOnClick(item) {
       let actualCellClass = item.className.split(" ")[0];
       let actualCellElement = document.querySelector(`.${actualCellClass}`);
-      actualCellElement.addEventListener("click", readeActualCell);
+      actualCellElement.addEventListener("click", MainFunc);
     }
 
 ////////////////////////////////////////////////////////////
@@ -14,39 +14,23 @@
 
 var selectedCheckerColor;
 let countTime = 0;
-function readeActualCell() {
+ let acceptedCellsForPut;
+function MainFunc() {
   // Counting actual side to make it's move:
   countTime++;
   // Reading-Cell-ID-Clas
-  const cellIdentifireClass = this.className.split(" ")[0];
+    let actualDiv = this;
   if (countTime % 2) {
-    // Selecting checker on click
-    var actualCheckerDivElement = document.querySelector(
-      `.${cellIdentifireClass}-checker-div-element`
-    );
-    // Check Color Of Avalible Checker:
-    selectedCheckerColor = `${actualCheckerDivElement.style.backgroundColor}`;
-    // Checking ruels of game and syncroning act with them:
-    rulesCheck(cellIdentifireClass);
-    // Deleting ckecker that selected to be replaced:
-    actualCheckerDivElement.parentNode.removeChild(actualCheckerDivElement);
-  } else {
-    let cellToAddChecker = document.querySelector(`.${cellIdentifireClass}`);
-    console.log(cellIdentifireClass);
-
-    console.log(cellToAddChecker);
-    //Creating Checker
-    let cellXChecker = new Checker(cellToAddChecker, selectedCheckerColor);
-    cellXChecker.createCheckers();
-  }
-
-  console.log(acceptedCellsForPutLeftD);
-  console.log(acceptedCellsForPutRightD);
-  let acceptedCellsForPut = [
+     takeCheckerAndThinkWhatToDo(actualDiv);
+       acceptedCellsForPut = [
     ...acceptedCellsForPutLeftD,
     ...acceptedCellsForPutRightD,
   ];
-  console.log(acceptedCellsForPut);
+  } else {
+    thinkAndPutCheckerIfCheckGoesCorrect(actualDiv, acceptedCellsForPut);
+  }
+
+
 }
 
 //////////////////////////////////////////////////////
@@ -56,9 +40,6 @@ function readeActualCell() {
 const rulesCheck = function (cellCheck) {
   const checkForNearCellsLeftD = function (item, index, arr) {
     if (item == cellCheck) {
-      console.log(arr[index]);
-      console.log(arr[index + 1]);
-      console.log(arr[index - 1]);
       return (acceptedCellsForPutLeftD = [...arr]);
     }
   };
@@ -74,9 +55,6 @@ const rulesCheck = function (cellCheck) {
 
   const checkForNearCellsRightD = function (item, index, arr) {
     if (item == cellCheck) {
-      console.log(arr[index]);
-      console.log(arr[index + 1]);
-      console.log(arr[index - 1]);
       return (acceptedCellsForPutRightD = [...arr]);
     }
   };
@@ -89,3 +67,32 @@ const rulesCheck = function (cellCheck) {
   }
   checkForRightDiagonal();
 };
+
+function takeCheckerAndThinkWhatToDo (actualDiv) {
+    // takeCheckerAndThinkWhatToDo ();
+    const cellIdentifireClass = actualDiv.className.split(" ")[0];
+    // Selecting checker on click
+    var actualCheckerDivElement = document.querySelector(
+      `.${cellIdentifireClass}-checker-div-element`
+    );
+    // Check Color Of Avalible Checker:
+    selectedCheckerColor = `${actualCheckerDivElement.style.backgroundColor}`;
+    // Checking ruels of game and syncroning act with them:
+    rulesCheck(cellIdentifireClass);
+    // Deleting ckecker that selected to be replaced:
+    actualCheckerDivElement.parentNode.removeChild(actualCheckerDivElement);
+}
+
+function thinkAndPutCheckerIfCheckGoesCorrect (actualDiv, acceptedCellsForPut) {
+  const cellIdentifireClass = actualDiv.className.split(" ")[0];
+  let cellToAddChecker = document.querySelector(`.${cellIdentifireClass}`);
+  console.log(cellIdentifireClass);
+  console.log(cellToAddChecker);
+
+  if (cellIdentifireClass === acceptedCellsForPut) {
+  //Creating Checker
+  let cellXChecker = new Checker(cellToAddChecker, selectedCheckerColor);
+  cellXChecker.createCheckers();
+  console.log(acceptedCellsForPut)
+  }
+}
