@@ -187,60 +187,101 @@ function readeActualCell() {
     cellXChecker.createCheckers();
   }
   
-  console.log(acceptedCellsForPut);
+  console.log(acceptedCellsForPutLeftD);
+  console.log(acceptedCellsForPutRightD);
 }
 
   
 
-var acceptedCellsForPut;
+
+var acceptedCellsForPutLeftD;
+var acceptedCellsForPutRightD;
+
 
 const rulesCheck = function (cellCheck) {
 
 
-  function checkForLeftDiagonal () {
-
-  }
-  function checkForRightDiagonal () {
-    
-  }
-
-
-const checkForNearCells = function (item, index, arr) {
+const checkForNearCellsLeftD = function (item, index, arr) {
      
   if (item == cellCheck) {
           console.log(arr[index])
           console.log(arr[index+1])
           console.log(arr[index-1])
-    
-          // acceptedCellsForPut.push(`${arr[index]}`);
-      
-          // acceptedCellsForPut.push(arr[index-1]);
-
-          return acceptedCellsForPut = [arr[index], arr[index-1], arr[index+1]];
-
+          return acceptedCellsForPutLeftD = [arr[index], arr[index-1], arr[index+1]];
         }
+        
+        
     }
 
 
-
-   let leftDiagonalObj = diagonals.leftDiagonal;
+  function checkForLeftDiagonal () {
+  let leftDiagonalObj = diagonals.leftDiagonal;
    
  for (var key in leftDiagonalObj) {
       // console.log(key);
       // console.log(leftDiagonalObj[key]);
-      leftDiagonalObj[key].forEach(checkForNearCells);
+      leftDiagonalObj[key].forEach(checkForNearCellsLeftD);
+      // console.log(acceptedCellsForPut)
+      // acceptedCellsForPut = acceptedCellsForPutLeftD;
+      // console.log(acceptedCellsForPutLeftD)
+    }
+  }
+
+checkForLeftDiagonal()
+
+
+
+
+
+const checkForNearCellsRightD = function (item, index, arr) {
+     
+  if (item == cellCheck) {
+          console.log(arr[index])
+          console.log(arr[index+1])
+          console.log(arr[index-1])
+          return acceptedCellsForPutRightD = [arr[index], arr[index-1], arr[index+1]];
+        }
+        
+        
     }
 
-let rightDiagonalObj = diagonals.rightDiagonal;
-    for (var key in rightDiagonalObj) {
-     rightDiagonalObj[key].forEach(checkForNearCells);
+
+  function checkForRightDiagonal () {
+  let rightDiagonalObj = diagonals.rightDiagonal;
+   
+ for (var key in rightDiagonalObj) {
+      // console.log(key);
+      // console.log(leftDiagonalObj[key]);
+      rightDiagonalObj[key].forEach(checkForNearCellsRightD);
+      // console.log(acceptedCellsForPut)
+      // acceptedCellsForPut = acceptedCellsForPutLeftD;
+      // console.log(acceptedCellsForPutLeftD)
     }
+  }
+
+checkForRightDiagonal()
 
 
 
 
-      
+
+//   function checkForRightDiagonal () {
+// let rightDiagonalObj = diagonals.rightDiagonal;
+//     for (var key in rightDiagonalObj) {
+//      rightDiagonalObj[key].forEach(checkForNearCells);
+//     }
+//   }
+
 }
+
+
+
+
+
+
+
+ 
+   
 
 
 
