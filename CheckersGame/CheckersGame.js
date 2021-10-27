@@ -186,31 +186,60 @@ function readeActualCell() {
     let cellXChecker = new Checker(cellToAddChecker, selectedCheckerColor);
     cellXChecker.createCheckers();
   }
+  
+  console.log(acceptedCellsForPut);
 }
 
   
 
+var acceptedCellsForPut;
+
 const rulesCheck = function (cellCheck) {
 
 
-const checkForNeededCellClass = function (item, index, arr) {
+  function checkForLeftDiagonal () {
+
+  }
+  function checkForRightDiagonal () {
+    
+  }
+
+
+const checkForNearCells = function (item, index, arr) {
      
   if (item == cellCheck) {
           console.log(arr[index])
           console.log(arr[index+1])
           console.log(arr[index-1])
+    
+          // acceptedCellsForPut.push(`${arr[index]}`);
+      
+          // acceptedCellsForPut.push(arr[index-1]);
+
+          return acceptedCellsForPut = [arr[index], arr[index-1], arr[index+1]];
 
         }
     }
 
 
 
-   let leftDiagonalObj = diagonals.leftDiagonal
+   let leftDiagonalObj = diagonals.leftDiagonal;
+   
  for (var key in leftDiagonalObj) {
       // console.log(key);
       // console.log(leftDiagonalObj[key]);
-      leftDiagonalObj[key].forEach(checkForNeededCellClass);
+      leftDiagonalObj[key].forEach(checkForNearCells);
     }
+
+let rightDiagonalObj = diagonals.rightDiagonal;
+    for (var key in rightDiagonalObj) {
+     rightDiagonalObj[key].forEach(checkForNearCells);
+    }
+
+
+
+
+      
 }
 
 
