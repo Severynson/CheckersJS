@@ -28,6 +28,40 @@ const cell59 = document.querySelector(".cell-59");
 const cell61 = document.querySelector(".cell-61");
 const cell63 = document.querySelector(".cell-63");
 
+// Oter cells
+
+const cell34 = document.querySelector(".cell-34");
+const cell25 = document.querySelector(".cell-25");
+const cell36 = document.querySelector(".cell-36");
+const cell27 = document.querySelector(".cell-27");
+const cell38 = document.querySelector(".cell-38");
+const cell29 = document.querySelector(".cell-39");
+const cell40 = document.querySelector(".cell-40");
+const cell31 = document.querySelector(".cell-31");
+
+// Object for explanation for JS what is diagonal.
+const diagonals = {
+  leftDiagonal: {
+    1: ['cell-57'],
+    2: ['cell-59', 'cell50', 'cell41'],
+    3: ['cell-61', 'cell-52', 'cell-43', 'cell-34', 'cell-25'],
+    4: ['cell-63', 'cell-54', 'cell-45', 'cell-36', 'cell-27', 'cell-18', 'cell-9'],
+    5: ['cell-56', 'cell-47', 'cell-38', 'cell-29', 'cell-20', 'cell-11', 'cell-2'],
+    6: ['cell-40', 'cell-31', 'cell-22', 'cell-13', 'cell-4'],
+    7: ['cell-24', 'cell-15', 'cell-6'],
+    8: ['cell-8']
+  },
+  rightDiagonal: {
+    1: ['cell-63', 'cell-56'],
+    2: ['cell-61', 'cell-54', 'cell-47', 'cell-40'],
+    3: ['cell-59', 'cell-52', 'cell-45', 'cell-38', 'cell-31', 'cell-24'],
+    4: ['cell-57', 'cell-50', 'cell-43', 'cell-36', 'cell-29', 'cell-22', 'cell-15', 'cell-8'],
+    5: ['cell-41', 'cell-34', 'cell-27', 'cell-20', 'cell-13', 'cell-6'],
+    6: ['cell-25', 'cell-18', 'cell-11', 'cell-4'],
+    7: ['cell-9', 'cell-2']
+  }
+}
+
 // CheckerConstructor;
 const Checker = function (cellName, checkerColor) {
   this.cellName = cellName;
@@ -126,28 +160,81 @@ function checkClassOnClick(item) {
   actualCellElement.addEventListener("click", readeActualCell);
 }
 
-// -------- Reading-Cell-ID-Clas --------
+
 var selectedCheckerColor;
 let countTime = 0;
 function readeActualCell() {
   // Counting actual side to make it's move:
   countTime++;
+  // Reading-Cell-ID-Clas
   const cellIdentifireClass = this.className.split(" ")[0];
   if (countTime % 2) {
+    // Selecting checker on click
     var actualCheckerDivElement = document.querySelector(
       `.${cellIdentifireClass}-checker-div-element`
     );
      // Check Color Of Avalible Checker:
     selectedCheckerColor = `${actualCheckerDivElement.style.backgroundColor}`;
+    // Checking ruels of game and syncroning act with them:
+    rulesCheck(cellIdentifireClass);
     // Deleting ckecker that selected to be replaced:
     actualCheckerDivElement.parentNode.removeChild(actualCheckerDivElement);
   } else {
-   
     let cellToAddChecker = document.querySelector(`.${cellIdentifireClass}`);
     console.log(cellToAddChecker);
+    //Creating Checker
     let cellXChecker = new Checker(cellToAddChecker, selectedCheckerColor);
     cellXChecker.createCheckers();
   }
 }
 
+  
 
+const rulesCheck = function (cellCheck) {
+
+
+const checkForNeededCellClass = function (item, index, arr) {
+     
+  if (item == cellCheck) {
+          console.log(arr[index])
+          console.log(arr[index+1])
+          console.log(arr[index-1])
+
+        }
+    }
+
+
+
+   let leftDiagonalObj = diagonals.leftDiagonal
+ for (var key in leftDiagonalObj) {
+      // console.log(key);
+      // console.log(leftDiagonalObj[key]);
+      leftDiagonalObj[key].forEach(checkForNeededCellClass);
+    }
+}
+
+
+
+
+
+// const diagonals = {
+//   leftDiagonal: {
+//     1: [cell57],
+//     2: [cell59, cell50, cell41],
+//     3: [cell61, cell52, cell43, cell34, cell25],
+//     4: [cell63, cell54, cell45, cell36, cell27, cell18, cell9],
+//     5: [cell56, cell47, cell38, cell29, cell20, cell11, cell2],
+//     6: [cell40, cell31, cell22, cell13, cell4],
+//     7: [cell24, cell15, cell6],
+//     8: [cell8]
+//   },
+//   rightDiagonal: {
+//     1: [cell63, cell56],
+//     2: [cell61, cell54, cell47, cell40],
+//     3: [cell59, cell52, cell45, cell38, cell31, cell24],
+//     4: [cell57, cell50, cell43, cell36, cell29, cell22, cell15, cell8],
+//     5: [cell41, cell34, cell27, cell20, cell13, cell6],
+//     6: [cell25, cell18, cell11, cell4],
+//     7: [cell9, cell2]
+//   }
+// }
