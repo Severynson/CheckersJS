@@ -88,8 +88,7 @@ function thinkAndPutCheckerIfCheckGoesCorrect (actualDiv, acceptedCellsForPut) {
   let cellToAddChecker = document.querySelector(`.${cellIdentifireClass}`);
   console.log(cellIdentifireClass);
   console.log(cellToAddChecker);
-
-  if (cellIdentifireClass === acceptedCellsForPut) {
+  if (acceptedCellsForPut.includes(cellIdentifireClass)) {
   //Creating Checker
   let cellXChecker = new Checker(cellToAddChecker, selectedCheckerColor);
   cellXChecker.createCheckers();
