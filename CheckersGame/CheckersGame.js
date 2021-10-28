@@ -18,6 +18,7 @@ let countTime = 0;
 function MainFunc() {
   // Counting actual side to make it's move:
   countTime++;
+  console.log(countTime);
   // Reading-Cell-ID-Clas
     let actualDiv = this;
   if (countTime % 2) {
@@ -94,6 +95,7 @@ function thinkAndPutCheckerIfCheckGoesCorrect (actualDiv, acceptedCellsForPut) {
   cellXChecker.createCheckers();
   console.log(acceptedCellsForPut)
   } else {
+    countTime = 1
     thinkAndPutCheckerIfCheckGoesCorrect();
   }
 }
