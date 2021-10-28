@@ -14,7 +14,7 @@
 
 var selectedCheckerColor;
 let countTime = 0;
- let acceptedCellsForPut;
+ let diagonalCellClasses;
 function MainFunc() {
   // Counting actual side to make it's move:
   countTime++;
@@ -23,12 +23,12 @@ function MainFunc() {
     let actualDiv = this;
   if (countTime % 2) {
      takeCheckerAndThinkWhatToDo(actualDiv);
-       acceptedCellsForPut = [
+       diagonalCellClasses = [
     ...acceptedCellsForPutLeftD,
     ...acceptedCellsForPutRightD,
   ];
   } else {
-    thinkAndPutCheckerIfCheckGoesCorrect(actualDiv, acceptedCellsForPut);
+    thinkAndPutCheckerIfCheckGoesCorrect(actualDiv, diagonalCellClasses);
   }
 
 
@@ -84,18 +84,23 @@ function takeCheckerAndThinkWhatToDo (actualDiv) {
     actualCheckerDivElement.parentNode.removeChild(actualCheckerDivElement);
 }
 
-function thinkAndPutCheckerIfCheckGoesCorrect (actualDiv, acceptedCellsForPut) {
+function thinkAndPutCheckerIfCheckGoesCorrect (actualDiv, diagonalCellClasses) {
   const cellIdentifireClass = actualDiv.className.split(" ")[0];
   let cellToAddChecker = document.querySelector(`.${cellIdentifireClass}`);
   console.log(cellIdentifireClass);
   console.log(cellToAddChecker);
-  if (acceptedCellsForPut.includes(cellIdentifireClass)) {
+  scanerForPresenceOfCheckersOnDiagonal(diagonalCellClasses);
+  if (diagonalCellClasses.includes(cellIdentifireClass)) {
   //Creating Checker
   let cellXChecker = new Checker(cellToAddChecker, selectedCheckerColor);
   cellXChecker.createCheckers();
-  console.log(acceptedCellsForPut)
   } else {
     countTime = 1
     thinkAndPutCheckerIfCheckGoesCorrect();
   }
+}
+
+
+function scanerForPresenceOfCheckersOnDiagonal (diagonalCellClasses) {
+  console.log(diagonalCellClasses)
 }
