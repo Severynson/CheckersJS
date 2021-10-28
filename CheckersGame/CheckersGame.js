@@ -27,6 +27,12 @@ function MainFunc() {
     ...acceptedCellsForPutLeftD,
     ...acceptedCellsForPutRightD,
   ];
+   scanerForPresenceOfCheckersOnDiagonal(diagonalCellClasses);
+  // console.log(cellsConteiningChecker);
+
+  let actualDivIDClass = actualDiv.classList[0];
+  check4NearCellsForAnoterTeamCheckers (actualDivIDClass, acceptedCellsForPutLeftD, acceptedCellsForPutRightD); 
+
   } else {
     thinkAndPutCheckerIfCheckGoesCorrect(actualDiv, diagonalCellClasses);
   }
@@ -87,11 +93,13 @@ function takeCheckerAndThinkWhatToDo (actualDiv) {
 function thinkAndPutCheckerIfCheckGoesCorrect (actualDiv, diagonalCellClasses) {
   const cellIdentifireClass = actualDiv.className.split(" ")[0];
   let cellToAddChecker = document.querySelector(`.${cellIdentifireClass}`);
-  console.log(cellIdentifireClass);
-  console.log(cellToAddChecker);
-  scanerForPresenceOfCheckersOnDiagonal(diagonalCellClasses);
+  // console.log(cellIdentifireClass);
+  // console.log(cellToAddChecker);
+ 
   if (diagonalCellClasses.includes(cellIdentifireClass)) {
-  //Creating Checker
+
+
+    //Creating Checker
   let cellXChecker = new Checker(cellToAddChecker, selectedCheckerColor);
   cellXChecker.createCheckers();
   } else {
@@ -100,7 +108,39 @@ function thinkAndPutCheckerIfCheckGoesCorrect (actualDiv, diagonalCellClasses) {
   }
 }
 
-
+let cellsConteiningChecker = [];
 function scanerForPresenceOfCheckersOnDiagonal (diagonalCellClasses) {
-  console.log(diagonalCellClasses)
+  
+  diagonalCellClasses.forEach((classID) => {
+      let div = document.querySelector(`.${classID}`)
+    if (div.childElementCount === 1) {
+    cellsConteiningChecker.push(div.classList[0])
+    return cellsConteiningChecker;
+    }
+  })
+}
+
+function check4NearCellsForAnoterTeamCheckers (ourCell, leftDCells, rightDCells) {
+  console.log(leftDCells);
+  console.log(rightDCells);
+  console.log(ourCell)
+
+  var twoNearesCellsLD;
+
+  leftDCells.forEach((el, i, arr) => {
+    if (el === ourCell) {
+     console.log(twoNearesCellsLD = [arr[i-2], arr[i-1], arr[i+1], arr[i+2]]);
+      return twoNearesCellsLD;
+    }
+  })
+
+  var twoNearesCellsRD;
+
+  rightDCells.forEach((el, i, arr) => {
+    if (el === ourCell) {
+      console.log(twoNearesCellsRD = [arr[i-2], arr[i-1], arr[i+1], arr[i+2]]);
+      return twoNearesCellsRD;
+    }
+  })
+
 }
