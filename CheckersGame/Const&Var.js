@@ -63,5 +63,3 @@ const diagonals = {
 const activeCell = document.querySelectorAll(".active-cell");
 const activeCellArr = Array.from(activeCell);
 
-var acceptedCellsForPutLeftD;
-var acceptedCellsForPutRightD;

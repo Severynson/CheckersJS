@@ -26,7 +26,7 @@ const Checker = function (cellName, checkerColor) {
     checkerDivElement.style.display = "grid";
     checkerDivElement.style.borderRadius = "50%";
     checkerDivElement.style.cursor = "pointer";
-  
+    checkerDivElement.style.opacity = "0.9999999";
     checkerDivElement.appendChild(starEmoji);
     this.cellName.appendChild(checkerDivElement);
   };
