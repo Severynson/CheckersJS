@@ -142,34 +142,45 @@ function check4NearCellsForAnoterTeamCheckers(
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function thinkAndPutCheckerIfCheckGoesCorrect(actualDiv, diagonalCellClasses) {
-  const cellToPutIdentifireClass = actualDiv.className.split(" ")[0];
+  let cellToPutIdentifireClass = actualDiv.className.split(" ")[0];
+  console.log(cellToPutIdentifireClass)
   let cellToAddChecker = document.querySelector(`.${cellToPutIdentifireClass}`);
 
 
   let eightNearesCells = [...twoNearesCellsLD, ...twoNearesCellsRD];
-  console.log(eightNearesCells)
-  console.log(cellsConteiningChecker)
-  console.log(cellIdentifireClass)
-  console.log(cellToPutIdentifireClass)
-  console.log(diagonalCellClasses)
-  console.log(cellToAddChecker)
+  // console.log(eightNearesCells)
+  // console.log(cellsConteiningChecker)
+  // console.log(cellIdentifireClass)
+  // console.log(cellToPutIdentifireClass)
+  // console.log(diagonalCellClasses)
+  // console.log(cellToAddChecker)
 
 
-  function oneStepNearestCellsIsClear() {
-    if (eightNearesCells) {}
-  }
 
-  if (diagonalCellClasses.includes(cellToPutIdentifireClass)) {
-    // console.log(diagonalCellClasses)
-    // console.log(actualDiv)
-    //Deleling Old checker
+  const simplWalkCells = [eightNearesCells[1], eightNearesCells[2], eightNearesCells[5], eightNearesCells[6]]
+  if (simplWalkCells.includes(cellToPutIdentifireClass)) {
     actualCheckerDivElement.parentNode.removeChild(actualCheckerDivElement);
-    //Creating Checker
     let cellXChecker = new Checker(cellToAddChecker, selectedCheckerColor);
     cellXChecker.createCheckers();
   } else {
+  
     countTime = 1;
     thinkAndPutCheckerIfCheckGoesCorrect();
   }
+
+
+  // if (diagonalCellClasses.includes(cellToPutIdentifireClass)) {
+  //   // console.log(diagonalCellClasses)
+  //   // console.log(actualDiv)
+  //   //Deleling Old checker
+  //   actualCheckerDivElement.parentNode.removeChild(actualCheckerDivElement);
+  //   //Creating Checker
+  //   let cellXChecker = new Checker(cellToAddChecker, selectedCheckerColor);
+  //   cellXChecker.createCheckers();
+  // } else {
+  
+  //   countTime = 1;
+  //   thinkAndPutCheckerIfCheckGoesCorrect();
+  // }
 }
 
