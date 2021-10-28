@@ -93,5 +93,7 @@ function thinkAndPutCheckerIfCheckGoesCorrect (actualDiv, acceptedCellsForPut) {
   let cellXChecker = new Checker(cellToAddChecker, selectedCheckerColor);
   cellXChecker.createCheckers();
   console.log(acceptedCellsForPut)
+  } else {
+    thinkAndPutCheckerIfCheckGoesCorrect();
   }
 }
