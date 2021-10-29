@@ -41,7 +41,7 @@ const cell31 = document.querySelector(".cell-31");
 const diagonals = {
   leftDiagonals: {
     1: ['cell-57'],
-    2: ['cell-59', 'cell50', 'cell41'],
+    2: ['cell-59', 'cell-50', 'cell-41'],
     3: ['cell-61', 'cell-52', 'cell-43', 'cell-34', 'cell-25'],
     4: ['cell-63', 'cell-54', 'cell-45', 'cell-36', 'cell-27', 'cell-18', 'cell-9'],
     5: ['cell-56', 'cell-47', 'cell-38', 'cell-29', 'cell-20', 'cell-11', 'cell-2'],

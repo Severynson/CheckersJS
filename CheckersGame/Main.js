@@ -1,16 +1,39 @@
 "use strict";
 
 const deleteBetween = function () {
-    console.log('delete');
     cellsBetween.forEach((el) => {
         let cellXChecker = document.querySelector(`.${el}-checker-div-element`);
         cellXChecker && cellXChecker.parentNode.removeChild(cellXChecker);
     })
 }
 
+
+const isCheckerDamka = function () {
+    
+    let clickedDivID = clickedDiv.className.split(' ')[0];
+    if (['cell-2', 'cell-4', 'cell-6', 'cell-8'].includes(clickedDivID) && cell1CheckerColor === "rgb(217, 72, 15)") {
+        visibilityOfStar = "visible";
+    } else if (['cell-57', 'cell-59', 'cell-61', 'cell-63'].includes(clickedDivID) && cell1CheckerColor === "white") {
+        visibilityOfStar = "visible";
+    } else if (cell1Checker.lastChild.style.visibility === "visible") {
+        visibilityOfStar = "visible";
+    }
+}
+
+// cell1Checker.lastChild.style.visibility = "visible";
+
+var visibilityOfStar;
+
 const putChecker = function () {
+    visibilityOfStar = "hidden";
+    isCheckerDamka();
+    
+    
     cell1Checker.parentNode.removeChild(cell1Checker);
-    let cellXChecker = new Checker(clickedDiv, cell1CheckerColor);
+    
+    let cellXChecker = new Checker(clickedDiv, cell1CheckerColor, visibilityOfStar);
+    
+
     cellXChecker.createCheckers();
     return true;
 };
@@ -23,10 +46,7 @@ const putChecker = function () {
 
 const secondPartAnaliz = function () {
     let clickedDivID = clickedDiv.className.split(' ')[0];
-    // deleteBetweenChecker = true;
-    // return deleteBetweenChecker;
      const betweenToDelete = (diagonal) => {
-        // console.log(diagonal)
         stepDiagonal = diagonal;
         diagonal.forEach((el, i) => {
             el.includes(cell1ID) && (cell1DivIndex = i);
@@ -38,16 +58,8 @@ const secondPartAnaliz = function () {
 
     cell1LeftD.includes(clickedDivID) && betweenToDelete(cell1LeftD);
     cell1RightD.includes(clickedDivID) && betweenToDelete(cell1RightD);
-    
-      console.log(cell1DivIndex);
-      console.log(cell2DivIndex);
-      console.log(stepDiagonal);
-
-      
       cellsBetween = stepDiagonal.slice(cell1DivIndex+1, cell2DivIndex);
       (cellsBetween.length === 0) && (cellsBetween = stepDiagonal.slice(cell2DivIndex+1, cell1DivIndex));
-      console.log(cellsBetween)
-
     return true;
 }
 
@@ -91,7 +103,6 @@ const analizePosition = function (clickedDiv) {
             ...cell1LeftD,
             ...cell1RightD,
           ];
-      console.log(diagonalsCell1Classes)
 }
 
   let counter = 0;
@@ -103,7 +114,6 @@ const analizePosition = function (clickedDiv) {
           // Choose checker for step and analize it's place:
         analizePosition(clickedDiv);
       } else {
-          console.log("counter = !%2")
           secondPartAnaliz() && putChecker() && deleteBetween();
       }
   }

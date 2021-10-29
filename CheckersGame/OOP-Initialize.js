@@ -1,9 +1,10 @@
 // CheckerConstructor;
-const Checker = function (cellName, checkerColor) {
+const Checker = function (cellName, checkerColor, visibilityOfStar = 0) {
     this.cellName = cellName;
     this.checkerColor = checkerColor;
+    this.visibilityOfStar = visibilityOfStar;
   };
-  
+
   // Creating checkers function
   Checker.prototype.createCheckers = function () {
     const starEmoji = document.createElement("p");
@@ -12,6 +13,10 @@ const Checker = function (cellName, checkerColor) {
     starEmoji.style.width = "40px";
     starEmoji.style.fontSize = "50px";
     starEmoji.style.margin = "5px 0px 0px 9px";
+    starEmoji.style.visibility = "hidden";
+    if (this.visibilityOfStar === "visible") { starEmoji.style.visibility = "visible"};
+  
+  
   
     let checkerDivElement = document.createElement("div");
   
