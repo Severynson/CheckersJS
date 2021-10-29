@@ -39,7 +39,7 @@ const cell31 = document.querySelector(".cell-31");
 
 // Object for explanation for JS what is diagonal.
 const diagonals = {
-  leftDiagonal: {
+  leftDiagonals: {
     1: ['cell-57'],
     2: ['cell-59', 'cell50', 'cell41'],
     3: ['cell-61', 'cell-52', 'cell-43', 'cell-34', 'cell-25'],
@@ -49,7 +49,7 @@ const diagonals = {
     7: ['cell-24', 'cell-15', 'cell-6'],
     8: ['cell-8']
   },
-  rightDiagonal: {
+  rightDiagonals: {
     1: ['cell-63', 'cell-56'],
     2: ['cell-61', 'cell-54', 'cell-47', 'cell-40'],
     3: ['cell-59', 'cell-52', 'cell-45', 'cell-38', 'cell-31', 'cell-24'],

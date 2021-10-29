@@ -148,17 +148,25 @@ function thinkAndPutCheckerIfCheckGoesCorrect(actualDiv, diagonalCellClasses) {
 
 
   let eightNearesCells = [...twoNearesCellsLD, ...twoNearesCellsRD];
-  // console.log(eightNearesCells)
+  console.log(eightNearesCells)
   // console.log(cellsConteiningChecker)
   // console.log(cellIdentifireClass)
-  // console.log(cellToPutIdentifireClass)
+  console.log(cellToPutIdentifireClass)
   // console.log(diagonalCellClasses)
   // console.log(cellToAddChecker)
 
 
 
   const simplWalkCells = [eightNearesCells[1], eightNearesCells[2], eightNearesCells[5], eightNearesCells[6]]
-  if (simplWalkCells.includes(cellToPutIdentifireClass)) {
+  const damageWalk = [eightNearesCells[0], eightNearesCells[3], eightNearesCells[4], eightNearesCells[7]];
+  checkEightNearCellsForCheckersOn(eightNearesCells);
+  console.log(avalibilityOfCheckersForSimplCh);
+  console.log(damageWalk)
+  if (simplWalkCells.includes(cellToPutIdentifireClass) && !cellsConteiningChecker.includes(cellToPutIdentifireClass)) {
+    actualCheckerDivElement.parentNode.removeChild(actualCheckerDivElement);
+    let cellXChecker = new Checker(cellToAddChecker, selectedCheckerColor);
+    cellXChecker.createCheckers();
+  } else if (damageWalk.includes(cellToPutIdentifireClass) && cellsConteiningChecker.includes(eightNearesCells[1])) {
     actualCheckerDivElement.parentNode.removeChild(actualCheckerDivElement);
     let cellXChecker = new Checker(cellToAddChecker, selectedCheckerColor);
     cellXChecker.createCheckers();
@@ -182,5 +190,19 @@ function thinkAndPutCheckerIfCheckGoesCorrect(actualDiv, diagonalCellClasses) {
   //   countTime = 1;
   //   thinkAndPutCheckerIfCheckGoesCorrect();
   // }
+}
+
+var avalibilityOfCheckersForSimplCh = [];
+
+function checkEightNearCellsForCheckersOn (eightNearesCells) {
+  eightNearesCells = [];
+  eightNearesCells.forEach((el) => {
+    if (cellsConteiningChecker.includes(el)) {
+      avalibilityOfCheckersForSimplCh.push(true);
+    } else {
+      avalibilityOfCheckersForSimplCh.push(false);
+    }
+  })
+  return avalibilityOfCheckersForSimplCh;
 }
 
