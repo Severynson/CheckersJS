@@ -1,4 +1,16 @@
 "use strict";
+const putChecker = function () {
+    cell1Checker.parentNode.removeChild(cell1Checker);
+    let cellXChecker = new Checker(clickedDiv, cell1CheckerColor);
+    cellXChecker.createCheckers();
+};
+
+
+const secondPartAnaliz = function () {
+    return true;
+}
+
+
 
 const LRDiagonalsCheck = function (cellToCheck) {
         const checkForNearCellsLeftD = function (item, index, arr) {
@@ -42,14 +54,16 @@ const analizePosition = function (clickedDiv) {
 }
 
   let counter = 0;
+  let clickedDiv;
   const mainFunc = function () {
       counter++
-      let clickedDiv  = this;
+      clickedDiv  = this;
       if (counter % 2) {
           // Choose checker for step and analize it's place:
         analizePosition(clickedDiv);
       } else {
           console.log("counter = !%2")
+          secondPartAnaliz() && putChecker();
       }
   }
   
@@ -60,40 +74,4 @@ const checkClassOnClick = (item) => {
     actualCellElement.addEventListener("click", mainFunc);
   }
 
- activeCellArr.forEach(checkClassOnClick); 
-
-
-  
-
-
-
-//  const return2ArraysWithClassesOfDiagonals = function (cellCheck) {
-//     const checkForNearCellsLeftD = function (item, index, arr) {
-//       if (item == cellCheck) {
-//         return (acceptedCellsForPutLeftD = [...arr]);
-//       }
-//     };
-  
-//     function checkForLeftDiagonal() {
-//       let leftDiagonalObj = diagonals.leftDiagonal;
-//       for (var key in leftDiagonalObj) {
-//         leftDiagonalObj[key].forEach(checkForNearCellsLeftD);
-//       }
-//     }
-  
-//     checkForLeftDiagonal();
-  
-//     const checkForNearCellsRightD = function (item, index, arr) {
-//       if (item == cellCheck) {
-//         return (acceptedCellsForPutRightD = [...arr]);
-//       }
-//     };
-  
-//     function checkForRightDiagonal() {
-//       let rightDiagonalObj = diagonals.rightDiagonal;
-//       for (var key in rightDiagonalObj) {
-//         rightDiagonalObj[key].forEach(checkForNearCellsRightD);
-//       }
-//     }
-//     checkForRightDiagonal();
-//   };
+ activeCellArr.forEach(checkClassOnClick);
