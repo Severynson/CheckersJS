@@ -1,15 +1,25 @@
 "use strict";
+
+const deleteBetween = function () {
+    console.log('delete');
+    cellsBetween.forEach((el) => {
+        let cellXChecker = document.querySelector(`.${el}-checker-div-element`);
+        cellXChecker && cellXChecker.parentNode.removeChild(cellXChecker);
+    })
+}
+
 const putChecker = function () {
     cell1Checker.parentNode.removeChild(cell1Checker);
     let cellXChecker = new Checker(clickedDiv, cell1CheckerColor);
     cellXChecker.createCheckers();
-    // console.log(deleteBetweenChecker)
+    return true;
 };
 
 
  var cell1DivIndex;
  var cell2DivIndex;
  var stepDiagonal;
+ var cellsBetween = [];
 
 const secondPartAnaliz = function () {
     let clickedDivID = clickedDiv.className.split(' ')[0];
@@ -33,7 +43,7 @@ const secondPartAnaliz = function () {
       console.log(cell2DivIndex);
       console.log(stepDiagonal);
 
-      let cellsBetween = [];
+      
       cellsBetween = stepDiagonal.slice(cell1DivIndex+1, cell2DivIndex);
       (cellsBetween.length === 0) && (cellsBetween = stepDiagonal.slice(cell2DivIndex+1, cell1DivIndex));
       console.log(cellsBetween)
@@ -94,7 +104,7 @@ const analizePosition = function (clickedDiv) {
         analizePosition(clickedDiv);
       } else {
           console.log("counter = !%2")
-          secondPartAnaliz() && putChecker();
+          secondPartAnaliz() && putChecker() && deleteBetween();
       }
   }
   
