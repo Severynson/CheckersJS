@@ -3,10 +3,41 @@ const putChecker = function () {
     cell1Checker.parentNode.removeChild(cell1Checker);
     let cellXChecker = new Checker(clickedDiv, cell1CheckerColor);
     cellXChecker.createCheckers();
+    // console.log(deleteBetweenChecker)
 };
 
 
+ var cell1DivIndex;
+ var cell2DivIndex;
+ var stepDiagonal;
+
 const secondPartAnaliz = function () {
+    let clickedDivID = clickedDiv.className.split(' ')[0];
+    // deleteBetweenChecker = true;
+    // return deleteBetweenChecker;
+     const betweenToDelete = (diagonal) => {
+        // console.log(diagonal)
+        stepDiagonal = diagonal;
+        diagonal.forEach((el, i) => {
+            el.includes(cell1ID) && (cell1DivIndex = i);
+        })
+        diagonal.forEach((el, i) => {
+            el.includes(clickedDivID) && (cell2DivIndex = i);
+        })
+      }
+
+    cell1LeftD.includes(clickedDivID) && betweenToDelete(cell1LeftD);
+    cell1RightD.includes(clickedDivID) && betweenToDelete(cell1RightD);
+    
+      console.log(cell1DivIndex);
+      console.log(cell2DivIndex);
+      console.log(stepDiagonal);
+
+      let cellsBetween = [];
+      cellsBetween = stepDiagonal.slice(cell1DivIndex+1, cell2DivIndex);
+      (cellsBetween.length === 0) && (cellsBetween = stepDiagonal.slice(cell2DivIndex+1, cell1DivIndex));
+      console.log(cellsBetween)
+
     return true;
 }
 
