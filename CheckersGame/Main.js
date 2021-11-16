@@ -45,7 +45,6 @@ const putChecker = function () {
   if (cellsBetween.length === 0 && cell1Checker.lastChild.style.visibility === "hidden") {
     replace();
     return true;
-    // let cell2Checker = document.querySelector;
   } else if (cellsBetween.length === 1 && document.querySelector((`.${cellsBetween[0]}-checker-div-element`)) && cell1Checker.lastChild.style.visibility === "hidden") {
     replace();
     return true;
@@ -56,6 +55,9 @@ const putChecker = function () {
 /////////////////
 //////////////////////
 ///////////////////////////
+  } else if (cell1Checker.lastChild.style.visibility === "visible") {
+    replace();
+    return true;
   } else {
     counter = 1
   }
