@@ -51,7 +51,9 @@ var cellsBetween = [];
 
 const secondPartAnaliz = function () {
   let clickedDivID = clickedDiv.className.split(" ")[0];
-  const betweenToDelete = (diagonal) => {
+  let cell2Checker = document.querySelector(`.${clickedDivID}-checker-div-element`);
+  if (cell2Checker === null) {
+      const betweenToDelete = (diagonal) => {
     stepDiagonal = diagonal;
     diagonal.forEach((el, i) => {
       el.includes(cell1ID) && (cell1DivIndex = i);
@@ -67,6 +69,9 @@ const secondPartAnaliz = function () {
   cellsBetween.length === 0 &&
     (cellsBetween = stepDiagonal.slice(cell2DivIndex + 1, cell1DivIndex));
   return true;
+  } else {
+    counter = 1;
+  }
 };
 
 const LRDiagonalsCheck = function (cellToCheck) {
@@ -99,7 +104,7 @@ var diagonalsCell1Classes;
 const analizePosition = function (clickedDiv) {
   cell1ID = clickedDiv.className.split(" ")[0];
   cell1Checker = document.querySelector(`.${cell1ID}-checker-div-element`);
-  // cell1Checker === !null && 
+  // Is checker in cell avalible: 
   if (cell1Checker !== null) {
     cell1CheckerColor = `${cell1Checker.style.backgroundColor}`;
   cell1Checker.parentNode.lastChild.style.opacity = "0.7";
