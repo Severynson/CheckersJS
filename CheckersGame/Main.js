@@ -24,24 +24,42 @@ const isCheckerDamka = function () {
   }
 };
 
-// cell1Checker.lastChild.style.visibility = "visible";
+// cellsBetween.length
+// cell1Checker.lastChild.style.visibility === "visible"
 
 var visibilityOfStar;
 
 const putChecker = function () {
-  visibilityOfStar = "hidden";
-  isCheckerDamka();
-
-  cell1Checker.parentNode.removeChild(cell1Checker);
-
+    const replace = () => {
+    cell1Checker.parentNode.removeChild(cell1Checker);
   let cellXChecker = new Checker(
     clickedDiv,
     cell1CheckerColor,
     visibilityOfStar
   );
-
   cellXChecker.createCheckers();
-  return true;
+  }
+  visibilityOfStar = "hidden";
+  isCheckerDamka();
+
+  if (cellsBetween.length === 0 && cell1Checker.lastChild.style.visibility === "hidden") {
+    replace();
+    return true;
+    // let cell2Checker = document.querySelector;
+  } else if (cellsBetween.length === 1 && document.querySelector((`.${cellsBetween[0]}-checker-div-element`)) && cell1Checker.lastChild.style.visibility === "hidden") {
+    replace();
+    return true;
+////
+/////////
+/////////
+//////////////
+/////////////////
+//////////////////////
+///////////////////////////
+  } else {
+    counter = 1
+  }
+
 };
 
 var cell1DivIndex;
@@ -52,7 +70,7 @@ var cellsBetween = [];
 const secondPartAnaliz = function () {
   let clickedDivID = clickedDiv.className.split(" ")[0];
   let cell2Checker = document.querySelector(`.${clickedDivID}-checker-div-element`);
-  if (cell2Checker === null) {
+  if (cell2Checker === null || cell2Checker === cell1Checker) {
       const betweenToDelete = (diagonal) => {
     stepDiagonal = diagonal;
     diagonal.forEach((el, i) => {
@@ -68,6 +86,7 @@ const secondPartAnaliz = function () {
   cellsBetween = stepDiagonal.slice(cell1DivIndex + 1, cell2DivIndex);
   cellsBetween.length === 0 &&
     (cellsBetween = stepDiagonal.slice(cell2DivIndex + 1, cell1DivIndex));
+    console.log(cellsBetween.length)
   return true;
   } else {
     counter = 1;
