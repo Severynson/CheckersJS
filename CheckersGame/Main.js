@@ -7,6 +7,8 @@ const deleteBetween = function () {
   });
 };
 
+
+
 const isCheckerDamka = function () {
   let clickedDivID = clickedDiv.className.split(" ")[0];
   if (
@@ -42,31 +44,39 @@ const putChecker = function () {
   let cellsBetweenContainsSameColorCheckers = false;
 
   cellsBetween.forEach((el) => {
-    let cellXChecker = document.querySelector(`.${el}-checker-div-element`);
-    let cellBetweenChecker = document.querySelector(`.${cellXChecker.parentNode.className.split(" ")[0]}-checker-div-element`);
+    let cellXChecker = document?.querySelector(`.${el}-checker-div-element`);
+    // console.log(cellXChecker.parentNode)
     console.log(cell1CheckerColor);
-    cellXChecker && console.log(cellBetweenChecker.style.backgroundColor);
-    if (cell1CheckerColor === cellBetweenChecker.style.backgroundColor) {
+    cellXChecker && console.log(cellXChecker?.style?.backgroundColor);
+    console.log(cellXChecker)
+    if (cell1CheckerColor === cellXChecker?.style?.backgroundColor) {
       cellsBetweenContainsSameColorCheckers = true;
     } else {
       cellsBetweenContainsSameColorCheckers = false;
     }
   })
 
+  let clickedDivID = clickedDiv.className.split(" ")[0];
+
   if (
+    diagonalsCell1Classes.includes(clickedDivID) &&
     cellsBetween.length === 0 &&
     cell1Checker.lastChild.style.visibility === "hidden"
   ) {
+    console.log(clickedDivID)
     replace();
     return true;
   } else if (
+    diagonalsCell1Classes.includes(clickedDivID) &&
     cellsBetween.length === 1 && cellsBetweenContainsSameColorCheckers === false &&
     document.querySelector(`.${cellsBetween[0]}-checker-div-element`) &&
     cell1Checker.lastChild.style.visibility === "hidden"
   ) {
     replace();
     return true;
-  } else if (cell1Checker.lastChild.style.visibility === "visible"&& cellsBetweenContainsSameColorCheckers === false) {
+  } else if (
+    diagonalsCell1Classes.includes(clickedDivID) &&
+    cell1Checker.lastChild.style.visibility === "visible" && cellsBetweenContainsSameColorCheckers === false) {
     replace();
     return true;
   } else {
@@ -143,6 +153,7 @@ const analizePosition = function (clickedDiv) {
     cell1Checker.parentNode.lastChild.style.opacity = "0.7";
     LRDiagonalsCheck(cell1ID);
     diagonalsCell1Classes = [...cell1LeftD, ...cell1RightD];
+    console.log(diagonalsCell1Classes)
   } else {
     counter = 0;
   }
