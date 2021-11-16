@@ -19,11 +19,6 @@ closePopupButton.addEventListener('click', closePopupWindow);
 
 const logIn = () => {
     userDataBase.forEach(function(person, index, pArr) {
-        console.log(person);
-        console.log(index)
-        console.log(userDataBase.length)
-        console.log(person[0]);
-        console.log(person[1]);
         if (person[0] === usernameInput.value && person[1] === passwordInput.value) {
             popupBlock.style.opacity = "0";
     popupBlock.style.visibility = "hidden";

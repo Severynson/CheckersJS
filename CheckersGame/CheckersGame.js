@@ -65,6 +65,7 @@ function takeCheckerAndThinkWhatToDo(actualDiv) {
   // Deleting ckecker that selected to be replaced:
   // actualCheckerDivElement.parentNode.lastChild.style.backgroundColor = "#e9ecef";
   actualCheckerDivElement.parentNode.lastChild.style.opacity = "0.7";
+  console.log(`actualCheckerDivElement`);
 }
 
 
